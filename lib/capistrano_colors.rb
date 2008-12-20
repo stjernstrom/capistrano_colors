@@ -1,9 +1,7 @@
-#puts "  \e[36m ============================================"
 puts "\e[36m    == capistrano_colors loaded ==\e[0m"
-#puts "   ============================================\e[0m"
 
 module Capistrano
-  class Logger #:nodoc:
+  class Logger
 
     def colorize(message, color, nl = "\n")
       "\e[#{color}m" + message.strip + "\e[0m#{nl}"

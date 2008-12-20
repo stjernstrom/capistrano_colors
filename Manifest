@@ -1,3 +1,4 @@
+capistrano_colors.gemspec
 lib/capistrano_colors.rb
 Manifest
 Rakefile

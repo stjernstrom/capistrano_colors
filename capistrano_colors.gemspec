@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano_colors}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathias Stjernstrom"]
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Simple gem to display colors in capistrano output.}
   s.email = %q{mathias@globalinn.com}
   s.extra_rdoc_files = ["lib/capistrano_colors.rb", "README.rdoc"]
-  s.files = ["lib/capistrano_colors.rb", "Manifest", "Rakefile", "README.rdoc", "capistrano_colors.gemspec"]
+  s.files = ["capistrano_colors.gemspec", "lib/capistrano_colors.rb", "Manifest", "Rakefile", "README.rdoc"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/stjernstrom/capistrano_colors}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Capistrano_colors", "--main", "README.rdoc"]

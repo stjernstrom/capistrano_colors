@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('capistrano_colors', '0.1.0') do |p|
+Echoe.new('capistrano_colors', '0.2.0') do |p|
   p.description    = "Simple gem to display colors in capistrano output."
   p.url            = "http://github.com/stjernstrom/capistrano_colors"
   p.author         = "Mathias Stjernstrom"
