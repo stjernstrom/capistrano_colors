@@ -1,0 +1,16 @@
+= capistrano_colors
+
+The aim of this gem is to make the capistrano output more userfriendly.
+When capistrano_colors is included in your deploy.rb different kind of output get different colors which makes reading a lot easier ;)
+
+== Installation
+
+sudo gem install capistrano_colors --source http://gems.github.com
+
+In your config/deploy.rb
+
+require 'capistrano_colors'
+
+== Author
+
+Mathias Stjernström (http://pastbedti.me/)
