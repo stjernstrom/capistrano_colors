@@ -1,7 +1,7 @@
 = capistrano_colors
 
 The aim of this gem is to make the capistrano output more userfriendly.
-When capistrano_colors is included in your deploy.rb different kind of output get different colors which makes reading a lot easier ;)
+When capistrano_colors is included in your deploy.rb capistrano output gets nice and shiny colors.
 
 == Installation
 
