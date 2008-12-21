@@ -9,6 +9,7 @@ Echoe.new('capistrano_colors', '0.2.0') do |p|
   p.email          = "mathias@globalinn.com"
   p.ignore_pattern = ["tmp/*", "script/*"]
   p.development_dependencies = ["capistrano >=2.3.0"]
+  p.project        = "capistranocolor"
 end
 
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
