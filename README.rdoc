@@ -5,7 +5,7 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
 
 == INSTALLATION
 
-   sudo gem install stjernstrom-capistrano_colors --source http://gems.github.com
+   sudo gem install capistrano_colors
 
 == USAGE
 
