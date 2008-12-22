@@ -13,6 +13,14 @@ In your config/deploy.rb
 
    require 'capistrano_colors'
 
+== CHANGES
+
+v.0.2.1 
+
+  - Bugfix for some err: messages that where not printed in red.
+  - Moved console colors to constants
+  - Simple cleanup 
+
 == AUTHOR
 
 Mathias Stjernström (http://pastbedti.me/)
