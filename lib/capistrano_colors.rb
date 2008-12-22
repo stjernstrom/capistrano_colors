@@ -29,7 +29,12 @@ module Capistrano
     end
     
     def important(message, line_prefix=nil)
-      log(IMPORTANT, colorize(message, "34"), line_prefix)
+      if line_prefix =~ /^err ::/
+        color = "31"
+      else
+        color = 34
+      end
+      log(IMPORTANT, colorize(message, color), line_prefix) if !message.strip.empty?
     end
     
     def trace(message, line_prefix=nil)
