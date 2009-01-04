@@ -1,46 +1,19 @@
-puts "\e[36m    == capistrano_colors loaded ==\e[0m"
+puts "\n\e[36m    == capistrano_colors loaded ==\e[0m\n\n"
 
-module Capistrano
-  class Logger
+dir = File.dirname(__FILE__)
 
-    CC_STD    = "0" 
-    CC_RED    = "31"
-    CC_GREEN  = "32"
-    CC_YELLOW = "33"
-    CC_BLUE   = "34"
+require dir + '/capistrano/configuration'
+require dir + '/capistrano/logger'
 
-    def colorize(message, color, nl = "\n")
-      "\e[#{color}m" + message.strip + "\e[0m#{nl}"
-    end
+# DEBUG
+Capistrano::Logger.add_color_matcher( /executing `.*/,             :green,   2, "== Currently ")
+Capistrano::Logger.add_color_matcher( /.*/,                        :yellow,  2)
 
-    def debug(message, line_prefix=nil)
-      if message =~ /executing `.*/
-        log(DEBUG, colorize("== Currently " + message, CC_GREEN), line_prefix)
-      else          
-        log(DEBUG, colorize(message, CC_YELLOW), line_prefix)            
-      end
-    end
+# INFO
+Capistrano::Logger.add_color_matcher( /.*out\] (fatal:|ERROR:).*/, :red,     1)
+Capistrano::Logger.add_color_matcher( /Permission denied/,         :red,     1)
+Capistrano::Logger.add_color_matcher( /sh: .+: command not found/, :magenta, 1)
 
-    def info(message, line_prefix=nil)
-      if message =~ /.*out\] (fatal:|ERROR:).*/ || message =~ /Permission denied/
-        color = CC_RED
-      else
-        color = CC_STD
-      end
-      log(INFO, colorize(message,color), line_prefix)        
-    end
-    
-    def important(message, line_prefix=nil)
-      if line_prefix =~ /^err ::/
-        color = CC_RED
-      else
-        color = CC_BLUE
-      end
-      log(IMPORTANT, colorize(message, color), line_prefix) if !message.strip.empty?
-    end
-    
-    def trace(message, line_prefix=nil)
-      log(TRACE, message, line_prefix)
-    end
-  end
-end
+# IMPORTANT
+Capistrano::Logger.add_color_matcher( /^err ::/,                   :red,     0)
+Capistrano::Logger.add_color_matcher( /.*/,                        :blue,    0)
