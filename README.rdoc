@@ -25,38 +25,46 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
 
 == Customer Matchers
 
-  Create a custom colormatcher with the colorize command.
-  colorize can be called with a hash of options or an array of hashes.
+ Create a custom colormatcher with the colorize command.
+ colorize can be called with a hash of options or an array of hashes.
   
-  The options hash should have the following fields.
+ The options hash should have the following fields.
   
-  * :match     - A regular expression of the row to match.
-  * :color     - The color we want on the matching rows.
-  * :prio      - What prio should this rule have (higher = more prio)
-  * :attribute - Special effect (:underline, :reverse, :blink)
-  * :level     - Specify if this matcher should be bound to some of capistranos log levels (info,debug,...)
+ * :match     - A regular expression of the row to match.
+ * :color     - The color we want on the matching rows.
+ * :prio      - What prio should this rule have (higher = more prio)
+ * :attribute - Special effect (:underline, :reverse, :blink)
+ * :level     - Specify if this matcher should be bound to some of capistranos log levels (info,debug,...)
 
-  === :color can have the following values:
+=== match 
+ :match is a simple regular expression for the row that should be matched.
 
-  * :hide  (hides the row completely)
-  * :none
-  * :black
-  * :red
-  * :green
-  * :yellow
-  * :blue
-  * :magenta
-  * :cyan
-  * :white
+=== color
+ :color can have the following values:
 
-  === :attribute can have the following values:
+ * :hide  (hides the row completely)
+ * :none
+ * :black
+ * :red
+ * :green
+ * :yellow
+ * :blue
+ * :magenta
+ * :cyan
+ * :white
 
-  * :bright
-  * :dim
-  * :underscore
-  * :blink
-  * :reverse
-  * :hidden
+== prio
+  :prio is a Integer defining the matchers prio.
+
+=== attribute
+ :attribute can have the following values:
+
+ * :bright
+ * :dim
+ * :underscore
+ * :blink
+ * :reverse
+ * :hidden
 
 == Example
 
