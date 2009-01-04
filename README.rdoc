@@ -9,11 +9,50 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
 
 == USAGE
 
-In your config/deploy.rb
+= Single project installation
+  
+  In your config/deploy.rb
 
    require 'capistrano_colors'
 
+= System wide installation
+
+  Create/Modify you ~/.caprc with the following
+  
+  require 'capistrano_colors'
+
+== Customer Matchers
+
+  Create a custom colormatcher with the colorize command.
+  colorize can be called with a hash of options or a array of hashes.
+  
+  The options hash should have the following fields.
+  
+   * :match     - A regular expression of the row to match.
+   * :color     - The color we want on the matching rows.
+   * :prio      - What prio should this rule have (higher = more prio)
+   * :attribute - Special effect (:underline, :reverse, :blink)
+   * :level     - Specify if this matcher should be bound to some of capistranos log levels (info,debug,...)
+
+== Example
+
+   require 'capistrano_colors'    
+
+   capistrano_color_matchers = [
+     { :match => /command finished/,       :color => :hide,      :prio => 10 },
+     { :match => /executing command/,      :color => :blue,      :prio => 10, :attribute => :underscore },
+     { :match => /^transaction: commit$/,  :color => :magenta,   :prio => 10, :attribute => :blink },
+     { :match => /git/,                    :color => :white,     :prio => 20, :attribute => :reverse },
+   ]
+
 == CHANGES
+
+v.0.5.0
+
+  - Total rewrite and that is why we have a big version bump ;)
+  - Moved modules/classes to separate files.
+  - Wrote a simple color-regexp-match-engine.
+  - Possible to make you own custom color-matchers.
 
 v.0.2.1 
 

@@ -26,7 +26,7 @@ module Capistrano
     
     alias_method :org_log, :log
 
-    def log(level, message, line_prefix=nil)
+    def log(level, message, line_prefix=nil) #:nodoc:
       
       color = :none
       attribute = nil
@@ -56,7 +56,7 @@ module Capistrano
             
     end
 
-    def self.add_color_matcher( options )
+    def self.add_color_matcher( options ) #:nodoc:
       @@color_matchers.push( options )
     end 
     
