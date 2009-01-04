@@ -42,6 +42,7 @@ module Capistrano
 
     def self.add_color_matcher(regexp, color, level = nil, prepend = nil, push = nil)
       hash = { :regexp => regexp, :level => level, :color => color, :prepend => prepend }
+      # puts "DEBUG: New rule: #{hash.inspect}"
       if push
         @@color_matchers.push( hash )
       else
