@@ -9,7 +9,7 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
 
 == USAGE
 
-=== Single project installation
+=== Per project installation
   
   In config/deploy.rb
 
@@ -23,7 +23,7 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
   require 'capistrano_colors'
   
 
-== Customer Matchers
+== Creating you own color matchers
 
  Create a custom colormatcher with the colorize command.
  colorize can be called with a hash of options or an array of hashes.
@@ -53,7 +53,7 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
  * :cyan
  * :white
 
-== prio
+=== prio
   :prio is a Integer defining the matchers prio.
 
 === attribute
@@ -77,6 +77,9 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
      { :match => /git/,                    :color => :white,     :prio => 20, :attribute => :reverse },
    ]
 
+   colorize( capistrano_color_matchers )
+   
+   
 == CHANGES
 
 v.0.5.0
