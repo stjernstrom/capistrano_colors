@@ -13,6 +13,15 @@ module Capistrano
                :white    => "37"
             } 
 
+    CAP_ATTRIBUTES = {
+              :bright     => 1,
+              :dim        => 2,
+              :underscore => 4,
+              :blink      => 5,
+              :reverse    => 7,
+              :hidden     => 8
+            }
+
     @@color_matchers = []
     
     alias_method :org_log, :log
@@ -20,13 +29,19 @@ module Capistrano
     def log(level, message, line_prefix=nil)
       
       color = :none
+      attribute = nil
       
-      @@color_matchers.each do |filter|
+      # Sort matchers in reverse order so we can break if we found a match.
+      @@sorted_color_matchers ||= @@color_matchers.sort_by { |i| -i[:prio] }
       
+      @@sorted_color_matchers.each do |filter|
+        
         if (filter[:level] == level || filter[:level].nil?)
-          if message =~ filter[:regexp]
+          if message =~ filter[:match]
             color = filter[:color]
-            message = filter[:prepend] + message if !filter[:prepend].nil?
+            attribute = filter[:attribute]
+            message = filter[:prepend] + message unless filter[:prepend].nil?
+            break
           end
         end
         
@@ -34,24 +49,20 @@ module Capistrano
 
       if color != :hide
         current_color = CAP_COLORS[color]
-        line_prefix = colorize(line_prefix.to_s, current_color) if !line_prefix.nil?
-        org_log(level, colorize(message, current_color), line_prefix=nil)
+        current_attribute = CAP_ATTRIBUTES[attribute]
+        line_prefix = colorize(line_prefix.to_s, current_color, current_attribute) unless line_prefix.nil?
+        org_log(level, colorize(message, current_color, current_attribute), line_prefix=nil)
       end
             
     end
 
-    def self.add_color_matcher(regexp, color, level = nil, prepend = nil, push = nil)
-      hash = { :regexp => regexp, :level => level, :color => color, :prepend => prepend }
-      # puts "DEBUG: New rule: #{hash.inspect}"
-      if push
-        @@color_matchers.push( hash )
-      else
-        @@color_matchers.unshift( hash )
-      end
+    def self.add_color_matcher( options )
+      @@color_matchers.push( options )
     end 
     
-    def colorize(message, color, nl = "\n")
-      "\e[#{color}m" + message.strip + "\e[0m#{nl}"
+    def colorize(message, color, attribute, nl = "\n")
+      attribute = "#{attribute};" if attribute
+      "\e[#{attribute}#{color}m" + message.strip + "\e[0m#{nl}"
     end
 
   end

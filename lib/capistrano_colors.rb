@@ -6,14 +6,14 @@ require dir + '/capistrano/configuration'
 require dir + '/capistrano/logger'
 
 # DEBUG
-Capistrano::Logger.add_color_matcher( /executing `.*/,             :green,   2, "== Currently ")
-Capistrano::Logger.add_color_matcher( /.*/,                        :yellow,  2)
+Capistrano::Logger.add_color_matcher({ :match => /executing `.*/,             :color => :green,   :level => 2, :prio => -10, :prepend => "== Currently " })
+Capistrano::Logger.add_color_matcher({ :match => /.*/,                        :color => :yellow,  :level => 2, :prio => -20 })
 
 # INFO
-Capistrano::Logger.add_color_matcher( /.*out\] (fatal:|ERROR:).*/, :red,     1)
-Capistrano::Logger.add_color_matcher( /Permission denied/,         :red,     1)
-Capistrano::Logger.add_color_matcher( /sh: .+: command not found/, :magenta, 1)
+Capistrano::Logger.add_color_matcher({ :match => /.*out\] (fatal:|ERROR:).*/, :color => :red,     :level => 1, :prio => -10 })
+Capistrano::Logger.add_color_matcher({ :match => /Permission denied/,         :color => :red,     :level => 1, :prio => -20 })
+Capistrano::Logger.add_color_matcher({ :match => /sh: .+: command not found/, :color => :magenta, :level => 1, :prio => -30 })
 
 # IMPORTANT
-Capistrano::Logger.add_color_matcher( /^err ::/,                   :red,     0)
-Capistrano::Logger.add_color_matcher( /.*/,                        :blue,    0)
+Capistrano::Logger.add_color_matcher({ :match => /^err ::/,                   :color => :red,     :level => 0, :prio => -10 })
+Capistrano::Logger.add_color_matcher({ :match => /.*/,                        :color => :blue,    :level => 0, :prio => -20 })
