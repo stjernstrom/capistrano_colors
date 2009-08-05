@@ -1,5 +1,3 @@
-puts "\n\e[36m    == capistrano_colors loaded ==\e[0m\n\n"
-
 dir = File.dirname(__FILE__)
 
 require dir + '/capistrano/configuration'
