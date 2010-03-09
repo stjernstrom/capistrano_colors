@@ -50,8 +50,9 @@ module Capistrano
       if color != :hide
         current_color = CAP_COLORS[color]
         current_attribute = CAP_ATTRIBUTES[attribute]
-        line_prefix = colorize(line_prefix.to_s, current_color, current_attribute) unless line_prefix.nil?
-        org_log(level, colorize(message, current_color, current_attribute), line_prefix=nil)
+
+        line_prefix = colorize(line_prefix.to_s, current_color, current_attribute, nil) unless line_prefix.nil?
+        org_log(level, colorize(message, current_color, current_attribute), line_prefix)
       end
             
     end
