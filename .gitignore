@@ -1,3 +1,5 @@
 pkg
 doc
 Manifest
+*.gem
+.rvmrc
