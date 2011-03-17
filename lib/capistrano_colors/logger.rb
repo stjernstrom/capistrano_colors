@@ -37,7 +37,7 @@ module Capistrano
       @@sorted_color_matchers.each do |filter|
         
         if (filter[:level] == level || filter[:level].nil?)
-          if message =~ filter[:match]
+          if message =~ filter[:match] || line_prefix =~ filter[:match]
             color = filter[:color]
             attribute = filter[:attribute]
             message = filter[:prepend] + message unless filter[:prepend].nil?
