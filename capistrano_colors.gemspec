@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano_colors}
-  s.version = "0.5.3"
+  s.version = "0.5.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Mathias Stjernstrom", "Rob Biedenharn"]
-  s.date = %q{2011-01-07}
+  s.authors = ["Mathias Stjernstrom"]
+  s.date = %q{2011-03-17}
   s.description = %q{Simple gem to display colors in capistrano output.}
-  s.email = %w[ mathias@globalinn.com rab@gaslightsoftware.com ]
+  s.email = %w[ mathias@globalinn.com ]
   s.extra_rdoc_files = ["README.rdoc", "lib/capistrano_colors/configuration.rb", "lib/capistrano_colors/logger.rb", "lib/capistrano_colors.rb"]
   s.files = ["README.rdoc", "Rakefile", "lib/capistrano_colors/configuration.rb", "lib/capistrano_colors/logger.rb", "lib/capistrano_colors.rb", "capistrano_colors.gemspec"]
   s.homepage = %q{http://github.com/stjernstrom/capistrano_colors}
