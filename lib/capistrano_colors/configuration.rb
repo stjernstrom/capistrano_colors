@@ -12,8 +12,8 @@ module Capistrano
     #   require 'capistrano_colors'    
     #
     #   capistrano_color_matchers = [
-    #     { :match => /command finished/,       :color => :hide,      :prio => 10 },
-    #     { :match => /executing command/,      :color => :blue,      :prio => 10, :attribute => :underscore },
+    #     { :match => /command finished/,       :color => :hide,      :prio => 10, :prepend => "$$$" },
+    #     { :match => /executing command/,      :color => :blue,      :prio => 10, :attribute => :underscore, :timestamp => true },
     #     { :match => /^transaction: commit$/,  :color => :magenta,   :prio => 10, :attribute => :blink },
     #     { :match => /git/,                    :color => :white,     :prio => 20, :attribute => :reverse },
     #   ]
@@ -48,6 +48,11 @@ module Capistrano
     # * :reverse
     # * :hidden
     #
+    # 
+    #  == Text alterations
+    #
+    # :prepend gives static text to be prepended to the output
+    # :timestamp adds the current time before the output
     #
     def colorize(options)
       
