@@ -5,7 +5,7 @@ require 'capistrano_colors/configuration'
 require 'capistrano_colors/logger'
 
 # DEBUG
-Capistrano::Logger.add_color_matcher({ :match => /executing `.*/,             :color => :green,   :level => 2, :prio => -10, :prepend => "== Currently " })
+Capistrano::Logger.add_color_matcher({ :match => /executing `.*/,             :color => :green,   :level => 2, :prio => -10, :prepend => "== Currently ", :timestamp => true })
 Capistrano::Logger.add_color_matcher({ :match => /.*/,                        :color => :yellow,  :level => 2, :prio => -20 })
 
 # INFO
