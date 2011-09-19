@@ -34,7 +34,9 @@ When capistrano_colors is included in your deploy.rb capistrano output gets nice
  * :color     - The color we want on the matching rows.
  * :prio      - What prio should this rule have (higher = more prio)
  * :attribute - Special effect (:underline, :reverse, :blink)
- * :level     - Specify if this matcher should be bound to some of capistranos log levels (info,debug,...)
+ * :level     - Specify if this matcher should be bound to some of capistranos log levels (info,debug,...) 
+ * :prepend   - Text to be prepended to the output
+ * :timestamp - Show current time with the output
 
 === match 
  :match is a simple regular expression for the row that should be matched.
