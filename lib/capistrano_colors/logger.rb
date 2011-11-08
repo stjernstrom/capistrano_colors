@@ -41,6 +41,7 @@ module Capistrano
             color = filter[:color]
             attribute = filter[:attribute]
             message = filter[:prepend] + message unless filter[:prepend].nil?
+            message = message + filter[:append] unless filter[:append].nil?
             message = Time.now.strftime('%T') + ' ' + message if filter[:timestamp]
             break
           end
