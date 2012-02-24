@@ -52,6 +52,7 @@ module Capistrano
     #  == Text alterations
     #
     # :prepend gives static text to be prepended to the output
+    # :replace replaces the matched text in the output
     # :timestamp adds the current time before the output
     #
     def colorize(options)
