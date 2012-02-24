@@ -62,6 +62,7 @@ module Capistrano
 
     def self.add_color_matcher( options ) #:nodoc:
       @@color_matchers.push( options )
+      @@sorted_color_matchers = nil
     end
 
     def colorize(message, color, attribute, nl = "\n")
