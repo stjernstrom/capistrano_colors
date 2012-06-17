@@ -43,7 +43,7 @@ module Capistrano
             message.gsub!(filter[:match], filter[:replace]) if filter[:replace]
             message = filter[:prepend] + message unless filter[:prepend].nil?
             message = message + filter[:append] unless filter[:append].nil?
-            message = Time.now.strftime('%T') + ' ' + message if filter[:timestamp]
+            message = Time.now.strftime('%Y-%m-%d %T') + ' ' + message if filter[:timestamp]
             break unless filter[:replace]
           end
         end
