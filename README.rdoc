@@ -1,3 +1,13 @@
+= Merged into capistrano
+
+=== Update to capistrano <code>2.13.5</code> to use the built-in log formatters.
+
+After updating, you can remove <code>capistrano_colors</code> from your <code>Gemfile</code>. Don't forget to remove <code>require 'capistrano_colors'</code> from <code>config/deploy.rb</code>.
+
+See the {Formatting Logs wiki page}[https://github.com/capistrano/capistrano/wiki/Formatting-Logs] on capistrano for more information about log formatters.
+
+------------------------------------------------------------
+
 == DESCRIPTION
 
 The aim of capistrano_colors is to make the capistrano output more userfriendly.
